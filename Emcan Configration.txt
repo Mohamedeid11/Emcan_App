@@ -1,0 +1,14 @@
+Domain :-app.emcan-group.com:2082
+UserName:- appemcangroup
+PassWord: jrQ4CnF[g~gk
+
+
+
+
+Database Configration
+
+Database: appemcangroup_system
+
+User: appemcangroup_system
+
+Password :-U2eUF9BqwswF
