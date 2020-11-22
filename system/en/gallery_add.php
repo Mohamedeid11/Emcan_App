@@ -28,7 +28,7 @@ if (!loggedin()) {
     if (isset($_POST['submit'])) {
 
     $imageCount = count($_FILES['gallery_image']['name']);
-    $gallery_id = $_POST['washer_id'];
+    $gallery_id = $_POST['gallery_id'];
 
     for($i=0 ;$i<$imageCount ;$i++) {
         $gallery_title_en = mysqli_real_escape_string($con, trim($_POST['gallery_title_en']));

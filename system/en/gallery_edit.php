@@ -1,4 +1,4 @@
-s<?php
+<?php
 include("config.php");
 if (!loggedin()) {
     header("Location: login.php");
@@ -10,7 +10,7 @@ if (!loggedin()) {
 ?>
 
 <?php
-// error_reporting(0);
+ error_reporting(0);
 
 if (isset($_POST['service_update'])) {
     $temp = $_POST;

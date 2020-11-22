@@ -19,40 +19,64 @@
                 </ul>
             </li>
 
-<!--            <li id="item4" class="has-sub">-->
-<!--                <a href="#"><span>--><?//= lang('washers')?><!--</span></a>-->
-<!--                <ul class="has-sub">-->
-<!--                    <li><a href="washer_add.php"><span>--><?//= lang('add_new_washer')?><!-- </span></a></li>-->
-<!--                    <li><a href="washer_view.php"><span>--><?//= lang('view_all_washer')?><!-- </span></a></li>-->
-<!--                    <li> <a href="washer_service_view.php"><span>--><?//= lang('view_all_washer_services')?><!--</span></a></li>-->
-<!--                    <li><a href="washer_images_view.php"><span> --><?//= lang('view_all_washer_images')?><!--</span></a></li>-->
-<!--                    <li><a href="washer_address_view.php"><span> --><?//= lang('view_all_washer_address')?><!-- </span></a></li>-->
-<!--                    <li><a href="washer_contact_view.php"><span>--><?//= lang('view_all_washer_contacts')?><!-- </span></a></li>-->
-<!--                    <li><a href="work_time_view.php"><span> --><?//= lang('view_all_work_time')?><!-- </span></a></li>-->
-<!--                </ul>-->
-<!--            </li>-->
+            <li id="item4" class="has-sub">
+                <a href="#"><span><?= lang('projects')?></span></a>
+                <ul class="has-sub">
+                    <li><a href="sub_portfolio_add.php"><span><?= lang('add_new_project')?> </span></a></li>
+                    <li><a href="sub_portfolio_view.php"><span><?= lang('view_all')?> </span></a></li>
+                </ul>
+            </li>
 
-<!--            <li id="item5" class="has-sub">-->
-<!--                <a href="washer_service_view.php"><span>--><?//= lang('washer_services')?><!--</span></a>-->
-<!--            </li>-->
         <?php } ?>
 
 
         <?php if ($_SESSION['statics'] == '1') { ?>
-<!--            <li id="item6" class="has-sub">-->
-<!--                <a href="#"><span>--><?//= lang('washer_images')?><!--</span></a>-->
+            <li id="item5" class="has-sub">
+                <a href="#"><span><?= lang('gallery')?></span></a>
+                <ul class="has-sub">
+                    <li><a href="gallery_add.php"><span><?= lang('add_new_gallery')?> </span></a></li>
+                    <li><a href="gallery_view.php"><span> <?= lang('view_all')?></span></a></li>
+                </ul>
+            </li>
+
+            <li id="item6" class="has-sub">
+                <a href="#"><span><?= lang('our_clients')?></span></a>
+                <ul class="has-sub">
+                    <li><a href="our_clients_add.php"><span> <?= lang('add_new_client')?> </span></a></li>
+                    <li><a href="our_clients_view.php"><span> <?= lang('view_all')?></span></a></li>
+                </ul>
+            </li>
+
+            <li id="item7" class="has-sub">
+                <a href="#"><span><?= lang('statistics')?></span></a>
+                <ul class="has-sub">
+                    <li><a href="statistics_add.php"><span> <?= lang('add_new_statistics')?> </span></a></li>
+                    <li><a href="statistics_view.php"><span> <?= lang('view_all')?></span></a></li>
+                </ul>
+            </li>
+
+            <li id="item8" class="has-sub">
+                <a href="#"><span><?= lang('offers')?></span></a>
+                <ul class="has-sub">
+                    <li><a href="offers_add.php"><span> <?= lang('add_new_offer')?> </span></a></li>
+                    <li><a href="offers_view.php"><span> <?= lang('view_all')?></span></a></li>
+                </ul>
+            </li>
+
+            <li id="item9" class="has-sub">
+                <a href="quote_view.php"><span><?= lang('quotes')?></span></a>
 <!--                <ul class="has-sub">-->
-<!--                    <li><a href="washer_images_add.php"><span>--><?//= lang('add_new_washer_image')?><!-- </span></a></li>-->
-<!--                    <li><a href="washer_images_view.php"><span> --><?//= lang('view_all')?><!--</span></a></li>-->
+<!--                    <li><a href="quote_add.php"><span> --><?////= lang('add_new_offer')?><!-- </span></a></li>-->
+<!--                   <li><a href="quote_view.php"><span> --><?////= lang('view_all')?><!--/span></a></li>-->
 <!--                </ul>-->
-<!--            </li>-->
-<!--            <li id="item7" class="has-sub">-->
-<!--                <a href="#"><span> --><?//= lang('washer_address')?><!--</span></a>-->
-<!--                <ul class="has-sub">-->
-<!--                    <li><a href="washer_address_add.php"><span>--><?//= lang('add_new_washer_address')?><!-- </span></a></li>-->
-<!--                    <li><a href="washer_address_view.php"><span> --><?//= lang('view_all')?><!-- </span></a></li>-->
-<!--                </ul>-->
-<!--            </li>-->
+            </li>
+            <li id="item10" class="has-sub">
+                <a href="#"><span> <?= lang('notifications')?></span></a>
+                <ul class="has-sub">
+                    <li><a href="notification_add.php"><span><?= lang('add_notification')?> </span></a></li>
+                    <li><a href="notifications_view.php"><span> <?= lang('view_all')?> </span></a></li>
+                </ul>
+            </li>
         <?php } ?>
 
         
@@ -128,13 +152,13 @@
 
         <?php if ($_SESSION['about'] == '1') { ?>
 
-            <li id="item12" class="has-sub">
-                <a href="#"><span><?= lang('clients')?></span></a>
-                <ul class="has-sub">
-                    <li><a href="client_add.php"><span><?= lang('add_new_clients')?></span></a></li>
-                    <li><a href="client_view.php"><span><?= lang('view_all')?></span></a></li>
-                </ul>
-            </li>
+<!--            <li id="item12" class="has-sub">-->
+<!--                <a href="#"><span>--><?//= lang('clients')?><!--</span></a>-->
+<!--                <ul class="has-sub">-->
+<!--                    <li><a href="client_add.php"><span>--><?//= lang('add_new_clients')?><!--</span></a></li>-->
+<!--                    <li><a href="client_view.php"><span>--><?//= lang('view_all')?><!--</span></a></li>-->
+<!--                </ul>-->
+<!--            </li>-->
 
 <!--            <li id="item302" class="has-sub">-->
 <!--                <a href="comments_view.php"><span>--><?//= lang('comments_rates')?><!--</span></a>-->

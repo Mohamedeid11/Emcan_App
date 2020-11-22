@@ -31,7 +31,6 @@ $site_lang['team'] = ' OUR TEAM';
 
 /* Admin panel General */
 $site_lang['control_panel'] = 'Control Panel';
-$site_lang['add_new_clients'] = 'Add New Client';
 $site_lang['messages'] = 'Messages';
 $site_lang['settings'] = 'Settings';
 $site_lang['view_all'] = 'View All';
@@ -114,7 +113,6 @@ $site_lang['gallery_name_arabic'] = 'Gallery Name in Arabic';
 $site_lang['client_name'] = 'Client Name';
 $site_lang['client_name_english'] = 'Client Name In english';
 $site_lang['client_name_arabic'] = 'Client Name In Arabic';
-$site_lang['update_client'] = 'Update Client';
 $site_lang['client_type'] = 'Client Type';
 
 
@@ -145,6 +143,8 @@ $site_lang['english_address'] = 'Address In English';
 $site_lang['arabic_address'] = 'Address In Arabic';
 $site_lang['mobile_number'] = 'Mobile Number';
 $site_lang['website'] = 'Website Link';
+
+
 
 
 /* Messages */
@@ -182,11 +182,12 @@ $site_lang['washer_desc_arabic'] = 'Washer Description In Arabic';
 
 
 
-
 /*washer Service */
 $site_lang['washer_services'] = 'Washer Services';
 $site_lang['view_all_washer_services'] = 'View All WAsher Services';
 $site_lang['washer_services_edit'] = 'Edit Washer Services';
+
+
 
 
 /* washer Images */
@@ -257,6 +258,55 @@ $site_lang['edit_subscription']= 'Edit Subscription';
 
 
 
+
+/*statistics */
+$site_lang['statistics'] = 'الإحصائيات';
+$site_lang['add_new_statistics'] = 'اضافة احصائيات جديده';
+$site_lang['update_statistics'] = 'تحديث الاحصائيات';
+$site_lang['statistic_title_en'] = 'اسم الاحصائيه باللغه الانجليزيه';
+$site_lang['statistic_title_ar'] = 'اسم الاحصائيه باللغه العربيه';
+$site_lang['statistic_number'] = 'اسم الاحصائيه باللغه العربيه';
+
+
+
+
+
+
+
+/* Offers */
+$site_lang['offers'] = 'Offers';
+$site_lang['add_new_offer'] = 'Add New Offer';
+$site_lang['update_offer'] = 'Update Offer';
+$site_lang['offer_title_en'] = 'Offer Title In English';
+$site_lang['offer_title_ar'] = 'Offer Title In Arabic';
+$site_lang['offer_description_en'] = 'Offer Description In English';
+$site_lang['offer_description_ar'] = 'Offer Description In Arabic';
+$site_lang['offer_vat'] = 'Vat';
+$site_lang['offer_discount'] = 'Discount';
+
+
+
+
+
+
+/* Quotes */
+$site_lang['quotes'] = 'Quotes';
+$site_lang['add_new_quote'] = 'Add New Quote';
+$site_lang['quote_title'] = 'Quote Title';
+$site_lang['quote_content'] = 'Quote Content';
+
+
+
+/* Notification */
+$site_lang['notifications'] = 'Notification';
+$site_lang['add_notification'] = 'Add Notification';
+$site_lang['update_notification'] = 'Update Notification';
+$site_lang['notification_text'] = 'Notification Text';
+
+
+
+
+
 /* News */
 $site_lang['news'] = 'News';
 $site_lang['add_new_news'] = 'Add New News';
@@ -276,8 +326,22 @@ $site_lang['map_lang'] = 'Map longitude';
 
 
 
+
+/* Our Clients */
+$site_lang['our_clients'] = 'Our Clients';
+$site_lang['add_new_client'] = 'Add new Client';
+$site_lang['update_client'] = 'Update Client';
+$site_lang['client_title_en'] = 'Client Title In English';
+$site_lang['client_title_ar'] = 'Client Title in Arabic';
+
+
+
+
+
+
+
 $site_lang['about_us'] = 'About Us';
-$site_lang['about_promo'] = 'About Fast Clean';
+$site_lang['about_emcan'] = 'About Emcan';
 $site_lang['arabic_title'] = 'Arabic title';
 $site_lang['english_title'] = 'English title';
 $site_lang['arabic_content'] = 'Arabic Content';
@@ -399,7 +463,6 @@ $site_lang['our_vision'] = 'OUR VISION';
 $site_lang['our_mission'] = 'OUR MISSION';
 $site_lang['strategic_goals'] = 'STRATEGIC GOALS';
 $site_lang['testimonial'] = 'TESTIMONIAL';
-$site_lang['statistics'] = 'STATISTICS';
 $site_lang['photo'] = 'PHOTO TAKEN';
 $site_lang['clients'] = 'Clients';
 

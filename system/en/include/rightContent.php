@@ -3,7 +3,7 @@
         <div class="container">
 
             <h3 style="display:block;text-align:center;margin-top: 15px;border-bottom: 1px solid #000;width: 40%;margin-right: auto;padding: 20px 0;margin-left: auto;margin-bottom: 60px;">
-                <?=lang('welcome_to_fastclean')?>
+                <?=lang('welcome_to_emcan')?>
 
             </h3>
 
@@ -15,11 +15,11 @@
                             <div class="col-md-3 col-lg-3 col-xl-3">
                                 <div class="price_card text-center">
                                     <div class="pricing-header bg-success" style="background-color:#967041 !important;">
-                                        <span class="name"> <i class="fa fa-slideshare"></i> <?= lang('slider')?></span>
+                                        <span class="name"> <i class="fa fa-slideshare"></i> <?= lang('services')?></span>
                                     </div>
                                     <ul class="price-features">
-                                        <li><a href="slider_add.php"><span><?= lang('add_new_slider')?></span></a></li>
-                                        <li><a href="slider_view.php"><span><?= lang('view_all')?> </span></a></li>
+                                        <li><a href="service_add.php"><span><?= lang('add_new_service')?></span></a></li>
+                                        <li><a href="service_view.php"><span><?= lang('view_all')?> </span></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -27,11 +27,11 @@
                             <div class="col-md-3 col-lg-3 col-xl-3">
                                 <div class="price_card text-center">
                                     <div class="pricing-header bg-success" style="background-color:#967041 !important;">
-                                        <span class="name"> <i class="fa fa-building"></i><?= lang('category')?></span>
+                                        <span class="name"> <i class="fa fa-building"></i><?= lang('portfolio')?></span>
                                     </div>
                                     <ul class="price-features">
-                                        <li><a href="category_add.php"><span><?= lang('add_new_category') ?></span></a></li>
-                                        <li><a href="category_view.php"><span><?= lang('view_all')?></span></a></li>
+                                        <li><a href="portfolio_add.php"><span><?= lang('add_new_portfolio') ?></span></a></li>
+                                        <li><a href="portfolio_view.php"><span><?= lang('view_all')?></span></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -39,11 +39,11 @@
                             <div class="col-md-3 col-lg-3 col-xl-3">
                                 <div class="price_card text-center">
                                     <div class="pricing-header bg-success" style="background-color:#967041 !important;">
-                                        <span class="name"> <i class="fa fa-info"></i> <?= lang('washers')?></span>
+                                        <span class="name"> <i class="fa fa-building"></i> <?= lang('projects')?></span>
                                     </div>
                                     <ul class="price-features">
-                                        <li><a href="washer_add.php"><span><?= lang('add_new_washer')?></span></a></li>
-                                        <li><a href="washer_view.php"><span><?= lang('view_all_washer')?></span></a></li>
+                                        <li><a href="sub_portfolio_add.php"><span><?= lang('add_new_project')?></span></a></li>
+                                        <li><a href="sub_portfolio_view.php"><span><?= lang('view_all')?></span></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -52,11 +52,11 @@
                             <div class="col-md-3 col-lg-3 col-xl-3">
                                 <div class="price_card text-center">
                                     <div class="pricing-header bg-success" style="background-color:#967041 !important;">
-                                        <span class="name"> <i class="fa fa-info"></i> <?= lang('vehicle_type')?></span>
+                                        <span class="name"> <i class="fa fa-info"></i> <?= lang('gallery')?></span>
                                     </div>
                                     <ul class="price-features">
-                                        <li><a href="vehicle_type_add.php"><span><?= lang('add_new_vehicle')?> </span></a></li>
-                                        <li><a href="vehicle_type_view.php"><span><?= lang('view_all')?></span></a></li>
+                                        <li><a href="gallery_add.php"><span><?= lang('add_new_gallery')?> </span></a></li>
+                                        <li><a href="gallery_view.php"><span><?= lang('view_all')?></span></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -64,11 +64,11 @@
                             <div class="col-md-3 col-lg-3 col-xl-3">
                                 <div class="price_card text-center">
                                     <div class="pricing-header bg-success" style="background-color:#967041 !important;">
-                                        <span class="name"> <i class="fa fa-info"></i> <?= lang('subscription')?></span>
+                                        <span class="name"> <i class="fa fa-users"></i> <?= lang('our_clients')?></span>
                                     </div>
                                     <ul class="price-features">
-                                        <li><a href="subscription_type_add.php"><span><?= lang('add_new_subscription')?> </span></a></li>
-                                        <li><a href="subscription_type_view.php"><span><?= lang('view_all')?></span></a></li>
+                                        <li><a href="our_clients_add.php"><span><?= lang('add_new_client')?> </span></a></li>
+                                        <li><a href="our_clients_view.php"><span><?= lang('view_all')?></span></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -81,13 +81,13 @@
                             <div class="col-md-3 col-lg-3 col-xl-3">
                                 <div class="price_card text-center">
                                     <div class="pricing-header bg-success" style="background-color:#967041 !important;">
-                                        <span class="name"> <i class="fa fa-cart-arrow-down"></i> <?= lang('orders')?></span>
+                                        <span class="name"> <i class="fa fa-users"></i> <?= lang('statistics')?></span>
                                     </div>
                                     <ul class="price-features">
 <!--                                        <li><a href="order_add.php"><span>Add New Order </span></a></li>-->
-                                        <li><a href="order_view.php"><span><?= lang('current_orders')?></span></a></li>
-                                        <li><a href="last_orders.php"><span><?= lang('last_orders')?> </span></a></li>
-                                        <li><a href="payment_methods_view.php"><span><?= lang('payment_methods')?></span></a></li>
+                                        <li><a href="statistics_add.php"><span><?= lang('add_new_statistics')?></span></a></li>
+                                        <li><a href="statistics_view.php"><span><?= lang('view_all')?> </span></a></li>
+<!--                                        <li><a href="payment_methods_view.php"><span>--><?//= lang('payment_methods')?><!--</span></a></li>-->
                                     </ul>
                                 </div>
                             </div>
@@ -185,11 +185,11 @@
                             <div class="col-md-3 col-lg-3 col-xl-3">
                                 <div class="price_card text-center">
                                     <div class="pricing-header bg-success" style="background-color:#967041 !important;">
-                                        <span class="name"> <i class="fa fa-users"></i> <?= lang('clients')?></span>
+                                        <span class="name"> <i class="fa fa-cart-arrow-down"></i> <?= lang('offers')?></span>
                                     </div>
                                     <ul class="price-features">
-                                        <li><a href="client_add.php"><span><?= lang('add_new_clients')?></span></a></li>
-                                        <li><a href="client_view.php"><span><?= lang('view_all')?></span></a></li>
+                                        <li><a href="offers_add.php"><span><?= lang('add_new_offer')?></span></a></li>
+                                        <li><a href="offers_view.php"><span><?= lang('view_all')?></span></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -197,10 +197,10 @@
                             <div class="col-md-3 col-lg-3 col-xl-3">
                                 <div class="price_card text-center">
                                     <div class="pricing-header bg-success" style="background-color:#967041 !important;">
-                                        <span class="name"> <i class="fa fa-info"></i><?= lang('comments_rates')?></span>
+                                        <span class="name"> <i class="fa fa-info"></i><?= lang('quotes')?></span>
                                     </div>
                                     <ul class="price-features">
-                                        <li><a href="comments_view.php"><span><?= lang('comments_rates')?></span></a></li>
+                                        <li><a href="comments_view.php"><span><?= lang('quotes')?></span></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -211,7 +211,7 @@
                                         <span class="name"> <i class="fa fa-info"></i> <?= lang('about_us')?></span>
                                     </div>
                                     <ul class="price-features">
-                                        <li><a href="about_edit.php?id=1"><span><?=lang('about_fastclean')?></span></a></li>
+                                        <li><a href="about_edit.php?id=1"><span><?=lang('about_emcan')?></span></a></li>
                                         <li><a href="contact_edit.php"><span><?= lang('contact_us')?></span></a></li>
                                         <li><a href="setting_edit.php"><span><?=lang('settings')?></span></a></li>
                                     </ul>

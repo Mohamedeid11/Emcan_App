@@ -948,27 +948,26 @@ function get_size_name_ar_from_id($size_id) {
     return $sub_category_size_name;
 }
 
-function get_service_name_ar_from_id($service_id) {
+
+
+function get_service_name_from_id($service_id , $lang) {
 
     $result = mysql_query("SELECT * FROM `services` WHERE `service_id`='$service_id' ORDER BY `service_id` DESC") or die(mysql_error());
 
     $row = mysql_fetch_array($result);
+    if ($lang == "ar") {
 
-    $service_name = $row['service_name_ar'];
+        $service_name = $row["service_name_ar"];
 
-    return $service_name;
-}
+    } else {
 
-function get_service_name_en_from_id($service_id) {
-
-    $result = mysql_query("SELECT * FROM `services` WHERE `service_id`='$service_id' ORDER BY `service_id` DESC") or die(mysql_error());
-
-    $row = mysql_fetch_array($result);
-
-    $service_name = $row['service_name_en'];
+        $service_name = $row["service_name_en"];
+    }
 
     return $service_name;
 }
+
+
 
 function get_size_price_from_id($size_id) {
 

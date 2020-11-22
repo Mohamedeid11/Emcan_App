@@ -25,7 +25,6 @@ $site_lang['additions'] = 'الإضافات';
 $site_lang['removes'] = 'الإزالات';
 $site_lang['team'] = 'فريق العمل';
 
-$site_lang['add_new_clients'] = 'اضافة عميل جديد';
 $site_lang['messages'] = 'الرسائل';
 $site_lang['settings'] = 'الاعدادات';
 $site_lang['view_all'] = 'عرض الكل';
@@ -106,7 +105,6 @@ $site_lang['gallery_name_arabic'] = 'اسم الصوره باللغه العرب
 $site_lang['client_name'] = 'اسم العميل ';
 $site_lang['client_name_english'] = 'اسم العميل باللغه الانجليزيه ';
 $site_lang['client_name_arabic'] = 'اسم العميل باللغه العربيه';
-$site_lang['update_client'] = 'تحديث عميل';
 $site_lang['client_type'] = 'نوع العميل';
 
 
@@ -260,6 +258,58 @@ $site_lang['edit_subscription']= 'تعديل الاشتراك';
 
 
 
+/*statistics */
+$site_lang['statistics'] = 'الإحصائيات';
+$site_lang['add_new_statistics'] = 'اضافة احصائيات جديده';
+$site_lang['update_statistics'] = 'تحديث الاحصائيات';
+$site_lang['statistic_title_en'] = 'اسم الاحصائيه باللغه الانجليزيه';
+$site_lang['statistic_title_ar'] = 'اسم الاحصائيه باللغه العربيه';
+$site_lang['statistic_number'] = ' عدد الاحصائيه';
+
+
+
+
+/* Offers */
+$site_lang['offers'] = 'العروض';
+$site_lang['add_new_offer'] = 'اضافة عرض جديد';
+$site_lang['update_offer'] = 'تحديث العرض';
+$site_lang['offer_title_en'] = 'اسم العرض باللغه الانجليزيه';
+$site_lang['offer_title_ar'] = 'اسم العرض باللغه العربيه';
+$site_lang['offer_description_en'] = 'وصف للعرض باللغه الانجليزيه';
+$site_lang['offer_description_ar'] = 'وصف للعرض باللغه العربيه';
+$site_lang['offer_vat'] = 'نسبة الخصم';
+$site_lang['offer_discount'] = 'الخصم';
+
+
+
+
+
+
+
+
+
+/* Quotes */
+$site_lang['quotes'] = 'المقتطفات';
+$site_lang['add_new_quote'] = ' اافة مقتطف جديد';
+$site_lang['quote_title'] = 'العنوان  ';
+$site_lang['quote_content'] = 'المحتوى';
+
+
+
+
+
+
+
+/* Notification */
+$site_lang['notifications'] = 'الاشعارات';
+$site_lang['add_notification'] = 'اضافة اشعار جديد';
+$site_lang['update_notification'] = 'تحديث الاشعار';
+$site_lang['notification_text'] = 'نص الاشعار';
+
+
+
+
+
 
 
 
@@ -279,10 +329,19 @@ $site_lang['map_lat'] = 'خطوط الطول';
 $site_lang['map_lang'] = 'خطوط العرض';
 
 
+/* Our Clients */
+$site_lang['our_clients'] = 'عملائنا';
+$site_lang['add_new_client'] = 'اضافة عميل جديد';
+$site_lang['update_client'] = 'اضافة عميل جديد';
+$site_lang['client_title_en'] = 'اسم العميل باللغه الانجليزيه';
+$site_lang['client_title_ar'] = 'اسم العميل باللغه العربيه';
+
+
+
 
 
 $site_lang['about_us'] = 'من نحن';
-$site_lang['about_fastclean'] = 'عن فاست كلين';
+$site_lang['about_emcan'] = 'عن إمكان';
 $site_lang['arabic_title'] = 'العنوان باللغه العربيه';
 $site_lang['english_title'] = 'العنوان باللغه الانجليزيه';
 $site_lang['contact_us'] = 'اتصل بنا';
@@ -395,7 +454,6 @@ $site_lang['our_vision'] = 'رؤيتنا';
 $site_lang['our_mission'] = 'مهمتنا';
 $site_lang['strategic_goals'] = 'الأهداف الاستراتيجية';
 $site_lang['testimonial'] = 'الاراء ';
-$site_lang['statistics'] = 'الإحصائيات';
 $site_lang['photo'] = 'التقاط صور  ';
 $site_lang['clients'] = 'عملائنا';
 

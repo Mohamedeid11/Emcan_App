@@ -15,9 +15,13 @@ if (!loggedin()) {
 if (isset($_POST['service_update'])) {
     $temp = $_POST;
 
-    $client_id_update = mysqli_real_escape_string($con, trim($temp['client_id_update']));
-    $client_title_en = mysqli_real_escape_string($con, trim($temp['client_title_en']));
-    $client_title_ar = mysqli_real_escape_string($con, trim($temp['client_title_ar']));
+    $offer_id_update = mysqli_real_escape_string($con, trim($temp['offer_id_update']));
+    $offer_title_en = mysqli_real_escape_string($con, trim($temp['offer_title_en']));
+    $offer_title_ar = mysqli_real_escape_string($con, trim($temp['offer_title_ar']));
+    $offer_desc_en = mysqli_real_escape_string($con, trim($temp['offer_desc_en']));
+    $offer_desc_ar = mysqli_real_escape_string($con, trim($temp['offer_desc_ar']));
+    $vat = mysqli_real_escape_string($con, trim($temp['vat']));
+    $discount = mysqli_real_escape_string($con, trim($temp['discount']));
     $display = mysqli_real_escape_string($con, trim($temp['display']));
 
 
@@ -28,25 +32,25 @@ if (isset($_POST['service_update'])) {
         $image_ext_old = $_POST['image_ext_old'];
         $mostafa = explode('/', $image_ext_old);
         $image_name = $mostafa[7];
-        $full_img_path = "../api/uploads/OurClients/$client_id_update" . "/" . $image_name;
+        $full_img_path = "../api/uploads/Offers/$offer_id_update" . "/" . $image_name;
         if (file_exists($full_img_path)) {
             @unlink($full_img_path);
         }
 
-        if (!file_exists("../api/uploads/OurClients/" . $client_id_update)) {
-            mkdir("../api/uploads/OurClients/" . $client_id_update, 0777, true);
+        if (!file_exists("../api/uploads/Offers/" . $offer_id_update)) {
+            mkdir("../api/uploads/Offers/" . $offer_id_update, 0777, true);
         }
 
         $image_name_update = $_FILES['image_update']['name'];
         $image_tmp_update = $_FILES['image_update']['tmp_name'];
 
-        $image_path = "../api/uploads/OurClients/$client_id_update" . "/" . $image_name_update;
-        $image_database = "{$sit_url}/api/uploads/OurClients/$client_id_update" . "/" . $image_name_update;
+        $image_path = "../api/uploads/Offers/$offer_id_update" . "/" . $image_name_update;
+        $image_database = "{$sit_url}/api/uploads/Offers/$offer_id_update" . "/" . $image_name_update;
 
 
         if (move_uploaded_file($image_tmp_update, $image_path)) {
 
-            $update = $con->query("UPDATE `our_clients` SET `client_title_en`='$client_title_en' , `client_title_ar`='$client_title_ar' ,`client_image`='$image_database',`display`='$display'  WHERE `client_id`='$client_id_update'");
+            $update = $con->query("UPDATE `offers` SET `offer_title_en`='$offer_title_en' , `offer_title_ar`='$offer_title_ar' , `offer_desc_en`='$offer_desc_en' , `offer_desc_ar`='$offer_desc_ar' , `vat`='$vat' , `discount`='$discount' , `offer_image`='$image_database',`display`='$display'  WHERE `offer_id`='$offer_id_update'");
         }
         if ($update) {
             echo get_success("Updated Successfully ");
@@ -54,7 +58,7 @@ if (isset($_POST['service_update'])) {
             echo get_error("there's an error ");
         }
     }else {
-        $update = $con->query("UPDATE `our_clients` SET `client_title_en`='$client_title_en' , `client_title_ar`='$client_title_ar' ,`display`='$display'  WHERE `client_id`='$client_id_update'");
+        $update = $con->query("UPDATE `offers` SET `offer_title_en`='$offer_title_en' , `offer_title_ar`='$offer_title_ar' , `offer_desc_en`='$offer_desc_en' , `offer_desc_ar`='$offer_desc_ar' , `vat`='$vat' , `discount`='$discount' ,`display`='$display'  WHERE `offer_id`='$offer_id_update'");
     }
 
 
@@ -86,31 +90,35 @@ if (isset($_POST['service_update'])) {
 
                     <div class="row">
                         <div class="col-sm-12">
-                            <h4 class="page-title"><?=lang('our_clients')?></h4>
+                            <h4 class="page-title"><?=lang('offers')?></h4>
                             <ol class="breadcrumb">
-                                <li><a href="our_clients_view.php"><?=lang('our_clients')?></a></li>
-                                <li class="active"><?=lang('update_client')?></li>
+                                <li><a href="offers_view.php"><?=lang('offers')?></a></li>
+                                <li class="active"><?=lang('update_offers')?></li>
                             </ol>
                         </div>
                     </div>
 
                     <div class="updateData"></div>
                     <?php
-                    if ($_GET['clientID']) {
+                    if ($_GET['offerID']) {
 
-                    $get_client_id = $_GET['clientID'];
+                    $get_offer_id = $_GET['offerID'];
 
-                    $query_select = $con->query("SELECT * FROM `our_clients` WHERE `client_id` = '{$get_client_id}' LIMIT 1");
+                    $query_select = $con->query("SELECT * FROM `offers` WHERE `offer_id` = '{$get_offer_id}' LIMIT 1");
                     $row_select = mysqli_fetch_array($query_select);
 
-                    $client_id = $row_select['client_id'];
-                    $client_title_en = $row_select['client_title_en'];
-                    $client_title_ar = $row_select['client_title_ar'];
+                    $offer_id = $row_select['offer_id'];
+                    $offer_title_en = $row_select['offer_title_en'];
+                    $offer_title_ar = $row_select['offer_title_ar'];
+                    $offer_desc_en = $row_select['offer_desc_en'];
+                    $offer_desc_ar = $row_select['offer_desc_ar'];
+                    $vat = $row_select['vat'];
+                    $discount = $row_select['discount'];
                     $display = $row_select['display'];
 
 
-                    $client_image = $row_select['client_image'];
-                    $get_image_ext = explode('.', $client_image);
+                    $offer_image = $row_select['offer_image'];
+                    $get_image_ext = explode('.', $offer_image);
                     $image_ext = strtolower(end($get_image_ext));
 
                     if ($query_select) {
@@ -119,15 +127,32 @@ if (isset($_POST['service_update'])) {
                         <div class="col-lg-12">
                             <div class="card-box">
                                 <form method="POST" enctype="multipart/form-data" data-parsley-validate novalidate>
-                                    <input type="hidden" name="client_id_update" id="client_id_update" parsley-trigger="change"  value="<?= $client_id; ?>" class="form-control">
+                                    <input type="hidden" name="offer_id_update" id="offer_id_update" parsley-trigger="change"  value="<?= $offer_id; ?>" class="form-control">
 
-                                    <div class="form-group col-md-3">
-                                        <label for="sub_cat_name"><?=lang('client_name_english')?></label>
-                                        <input type="text" name="client_title_en" id="client_title_en" parsley-trigger="change"  value="<?=$client_title_en; ?>" class="form-control">
+                                    <div class="form-group col-md-6">
+                                        <label for="sub_cat_name"><?=lang('offer_name_english')?></label>
+                                        <input type="text" name="offer_title_en" id="offer_title_en" parsley-trigger="change"  value="<?=$offer_title_en; ?>" class="form-control">
                                     </div>
-                                    <div class="form-group col-md-3">
-                                        <label for="sub_cat_name_ar"> <?=lang('client_name_arabic')?></label>
-                                        <input type="text" name="client_title_ar" id="client_title_ar" parsley-trigger="change"  value="<?= $client_title_ar ?>" class="form-control">
+                                    <div class="form-group col-md-6">
+                                        <label for="sub_cat_name_ar"> <?=lang('offer_name_arabic')?></label>
+                                        <input type="text" name="offer_title_ar" id="offer_title_ar" parsley-trigger="change"  value="<?= $offer_title_ar ?>" class="form-control">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="sub_cat_name"><?=lang('offer_description_en')?></label>
+                                        <input type="text" name="offer_desc_en" id="offer_desc_en" parsley-trigger="change"  value="<?=$offer_desc_en; ?>" class="form-control">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="sub_cat_name_ar"> <?=lang('offer_description_ar')?></label>
+                                        <input type="text" name="offer_desc_ar" id="offer_desc_ar" parsley-trigger="change"  value="<?= $offer_desc_ar ?>" class="form-control">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="sub_cat_name_ar"> <?=lang('offer_vat')?></label>
+                                        <input type="text" name="vat" id="vat" parsley-trigger="change"  value="<?= $vat ?>" class="form-control">
+                                    </div>
+
+                                    <div class="form-group col-md-6">
+                                        <label for="sub_cat_name_ar"> <?=lang('offer_discount')?></label>
+                                        <input type="text" name="discount" id="discount" parsley-trigger="change"  value="<?= $discount ?>" class="form-control">
                                     </div>
                                     <div class="clearfix"></div>
                                     <div class="form-group col-md-3">
@@ -149,13 +174,13 @@ if (isset($_POST['service_update'])) {
 
                                     <div class="clearfix"></div>
 
-                                    <input type="hidden" name="image_ext_old" value="<?php echo $client_image; ?>" />
+                                    <input type="hidden" name="image_ext_old" value="<?php echo $offer_image; ?>" />
                                     <div class="form-group m-b-0">
                                         <label for="userName"><?= lang('image')?>  <a class="showImg"><?= lang('edit')?>?</a> </label>
 
                                         <div class="gal-detail thumb getImage">
-                                            <a href="<?php echo $client_image; ?>" class="image-popup" title="<?= $client_title_en ?>">
-                                                <img src="<?php echo $client_image; ?>" class="thumb-img" alt="<?= $client_title_en; ?>">
+                                            <a href="<?php echo $offer_image; ?>" class="image-popup" title="<?= $offer_title_en ?>">
+                                                <img src="<?php echo $offer_image; ?>" class="thumb-img" alt="<?= $offer_title_en; ?>">
                                             </a>
                                         </div>
 
@@ -180,7 +205,7 @@ if (isset($_POST['service_update'])) {
                             type: 'image',
                             closeOnContentClick: true,
                             mainClass: 'mfp-fade',
-                            client: {
+                            offer: {
                                 enabled: true,
                                 navigateByImgClick: true,
                                 preload: [0, 1] // Will preload 0 - before current, and 1 after the current image
@@ -232,14 +257,7 @@ if (isset($_POST['service_update'])) {
 <script>
     $(document).ready(function () {
         $("#cssmenu ul>li").removeClass("active");
-        $("#item6").addClass("active");
-    });
-</script>
-<script type="text/javascript">
-    $('.select2me').select2({
-        placeholder: "Select",
-        width: 'auto',
-        allowClear: true
+        $("#item8").addClass("active");
     });
 </script>
 </body>

@@ -15,9 +15,10 @@ if (!loggedin()) {
 if (isset($_POST['service_update'])) {
     $temp = $_POST;
 
-    $client_id_update = mysqli_real_escape_string($con, trim($temp['client_id_update']));
-    $client_title_en = mysqli_real_escape_string($con, trim($temp['client_title_en']));
-    $client_title_ar = mysqli_real_escape_string($con, trim($temp['client_title_ar']));
+    $statistic_id_update = mysqli_real_escape_string($con, trim($temp['statistic_id_update']));
+    $statistic_title_en = mysqli_real_escape_string($con, trim($temp['statistic_title_en']));
+    $statistic_title_ar = mysqli_real_escape_string($con, trim($temp['statistic_title_ar']));
+    $statistic_number = mysqli_real_escape_string($con, trim($temp['statistic_number']));
     $display = mysqli_real_escape_string($con, trim($temp['display']));
 
 
@@ -28,25 +29,25 @@ if (isset($_POST['service_update'])) {
         $image_ext_old = $_POST['image_ext_old'];
         $mostafa = explode('/', $image_ext_old);
         $image_name = $mostafa[7];
-        $full_img_path = "../api/uploads/OurClients/$client_id_update" . "/" . $image_name;
+        $full_img_path = "../api/uploads/Statistics/$statistic_id_update" . "/" . $image_name;
         if (file_exists($full_img_path)) {
             @unlink($full_img_path);
         }
 
-        if (!file_exists("../api/uploads/OurClients/" . $client_id_update)) {
-            mkdir("../api/uploads/OurClients/" . $client_id_update, 0777, true);
+        if (!file_exists("../api/uploads/Statistics/" . $statistic_id_update)) {
+            mkdir("../api/uploads/Statistics/" . $statistic_id_update, 0777, true);
         }
 
         $image_name_update = $_FILES['image_update']['name'];
         $image_tmp_update = $_FILES['image_update']['tmp_name'];
 
-        $image_path = "../api/uploads/OurClients/$client_id_update" . "/" . $image_name_update;
-        $image_database = "{$sit_url}/api/uploads/OurClients/$client_id_update" . "/" . $image_name_update;
+        $image_path = "../api/uploads/Statistics/$statistic_id_update" . "/" . $image_name_update;
+        $image_database = "{$sit_url}/api/uploads/Statistics/$statistic_id_update" . "/" . $image_name_update;
 
 
         if (move_uploaded_file($image_tmp_update, $image_path)) {
 
-            $update = $con->query("UPDATE `our_clients` SET `client_title_en`='$client_title_en' , `client_title_ar`='$client_title_ar' ,`client_image`='$image_database',`display`='$display'  WHERE `client_id`='$client_id_update'");
+            $update = $con->query("UPDATE `statistics` SET `statistic_title_en`='$statistic_title_en' , `statistic_title_ar`='$statistic_title_ar' ,`statistic_number`='$statistic_number' ,`statistic_image`='$image_database',`display`='$display'  WHERE `statistic_id`='$statistic_id_update'");
         }
         if ($update) {
             echo get_success("Updated Successfully ");
@@ -54,7 +55,7 @@ if (isset($_POST['service_update'])) {
             echo get_error("there's an error ");
         }
     }else {
-        $update = $con->query("UPDATE `our_clients` SET `client_title_en`='$client_title_en' , `client_title_ar`='$client_title_ar' ,`display`='$display'  WHERE `client_id`='$client_id_update'");
+        $update = $con->query("UPDATE `statistics` SET `statistic_title_en`='$statistic_title_en' , `statistic_title_ar`='$statistic_title_ar' , `statistic_number`='$statistic_number' ,`display`='$display'  WHERE `statistic_id`='$statistic_id_update'");
     }
 
 
@@ -86,31 +87,32 @@ if (isset($_POST['service_update'])) {
 
                     <div class="row">
                         <div class="col-sm-12">
-                            <h4 class="page-title"><?=lang('our_clients')?></h4>
+                            <h4 class="page-title"><?=lang('statistics')?></h4>
                             <ol class="breadcrumb">
-                                <li><a href="our_clients_view.php"><?=lang('our_clients')?></a></li>
-                                <li class="active"><?=lang('update_client')?></li>
+                                <li><a href="statistics_view.php"><?=lang('statistics')?></a></li>
+                                <li class="active"><?=lang('update_statistics')?></li>
                             </ol>
                         </div>
                     </div>
 
                     <div class="updateData"></div>
                     <?php
-                    if ($_GET['clientID']) {
+                    if ($_GET['statisticID']) {
 
-                    $get_client_id = $_GET['clientID'];
+                    $get_statistic_id = $_GET['statisticID'];
 
-                    $query_select = $con->query("SELECT * FROM `our_clients` WHERE `client_id` = '{$get_client_id}' LIMIT 1");
+                    $query_select = $con->query("SELECT * FROM `statistics` WHERE `statistic_id` = '{$get_statistic_id}' LIMIT 1");
                     $row_select = mysqli_fetch_array($query_select);
 
-                    $client_id = $row_select['client_id'];
-                    $client_title_en = $row_select['client_title_en'];
-                    $client_title_ar = $row_select['client_title_ar'];
+                    $statistic_id = $row_select['statistic_id'];
+                    $statistic_title_en = $row_select['statistic_title_en'];
+                    $statistic_title_ar = $row_select['statistic_title_ar'];
+                    $statistic_number = $row_select['statistic_number'];
                     $display = $row_select['display'];
 
 
-                    $client_image = $row_select['client_image'];
-                    $get_image_ext = explode('.', $client_image);
+                    $statistic_image = $row_select['statistic_image'];
+                    $get_image_ext = explode('.', $statistic_image);
                     $image_ext = strtolower(end($get_image_ext));
 
                     if ($query_select) {
@@ -119,15 +121,19 @@ if (isset($_POST['service_update'])) {
                         <div class="col-lg-12">
                             <div class="card-box">
                                 <form method="POST" enctype="multipart/form-data" data-parsley-validate novalidate>
-                                    <input type="hidden" name="client_id_update" id="client_id_update" parsley-trigger="change"  value="<?= $client_id; ?>" class="form-control">
+                                    <input type="hidden" name="statistic_id_update" id="statistic_id_update" parsley-trigger="change"  value="<?= $statistic_id; ?>" class="form-control">
 
                                     <div class="form-group col-md-3">
-                                        <label for="sub_cat_name"><?=lang('client_name_english')?></label>
-                                        <input type="text" name="client_title_en" id="client_title_en" parsley-trigger="change"  value="<?=$client_title_en; ?>" class="form-control">
+                                        <label for="sub_cat_name"><?=lang('statistic_name_english')?></label>
+                                        <input type="text" name="statistic_title_en" id="statistic_title_en" parsley-trigger="change"  value="<?=$statistic_title_en; ?>" class="form-control">
                                     </div>
                                     <div class="form-group col-md-3">
-                                        <label for="sub_cat_name_ar"> <?=lang('client_name_arabic')?></label>
-                                        <input type="text" name="client_title_ar" id="client_title_ar" parsley-trigger="change"  value="<?= $client_title_ar ?>" class="form-control">
+                                        <label for="sub_cat_name_ar"> <?=lang('statistic_name_arabic')?></label>
+                                        <input type="text" name="statistic_title_ar" id="statistic_title_ar" parsley-trigger="change"  value="<?= $statistic_title_ar ?>" class="form-control">
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label for="sub_cat_name_ar"> <?=lang('statistic_number')?></label>
+                                        <input type="text" name="statistic_number" id="statistic_number" parsley-trigger="change"  value="<?= $statistic_number ?>" class="form-control">
                                     </div>
                                     <div class="clearfix"></div>
                                     <div class="form-group col-md-3">
@@ -149,13 +155,13 @@ if (isset($_POST['service_update'])) {
 
                                     <div class="clearfix"></div>
 
-                                    <input type="hidden" name="image_ext_old" value="<?php echo $client_image; ?>" />
+                                    <input type="hidden" name="image_ext_old" value="<?php echo $statistic_image; ?>" />
                                     <div class="form-group m-b-0">
                                         <label for="userName"><?= lang('image')?>  <a class="showImg"><?= lang('edit')?>?</a> </label>
 
                                         <div class="gal-detail thumb getImage">
-                                            <a href="<?php echo $client_image; ?>" class="image-popup" title="<?= $client_title_en ?>">
-                                                <img src="<?php echo $client_image; ?>" class="thumb-img" alt="<?= $client_title_en; ?>">
+                                            <a href="<?php echo $statistic_image; ?>" class="image-popup" title="<?= $statistic_title_en ?>">
+                                                <img src="<?php echo $statistic_image; ?>" class="thumb-img" alt="<?= $statistic_title_en; ?>">
                                             </a>
                                         </div>
 
@@ -180,7 +186,7 @@ if (isset($_POST['service_update'])) {
                             type: 'image',
                             closeOnContentClick: true,
                             mainClass: 'mfp-fade',
-                            client: {
+                            statistic: {
                                 enabled: true,
                                 navigateByImgClick: true,
                                 preload: [0, 1] // Will preload 0 - before current, and 1 after the current image
@@ -232,7 +238,7 @@ if (isset($_POST['service_update'])) {
 <script>
     $(document).ready(function () {
         $("#cssmenu ul>li").removeClass("active");
-        $("#item6").addClass("active");
+        $("#item7").addClass("active");
     });
 </script>
 <script type="text/javascript">
